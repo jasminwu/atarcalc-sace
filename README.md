@@ -1,3 +1,8 @@
 # atarcalc-matlab
 
-This program estimates your ATAR calculating your university aggregate from your top 90 credits of SACE results. This aggregate is compared with the information in saceData.xlsx (2021 conversion) to form a predicted result.
+This program estimates your ATAR using 2021 SACE data. 
+
+1. Enter recongnised learning such as Headstart or VET Course
+2. Enter your 10 and 20 credit subject scores
+3. Program finds the optimal 90 credits, ensuring that only 20 credits of recognised learning will count. Forms your university aggregate.
+4. This aggregate is compared with the information in saceData.xlsx (2021 conversion) to form a predicted ATAR.
