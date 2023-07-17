@@ -4,15 +4,26 @@ function [atar] = aggregateToAtar(aggregateTotal)
 
     % import spreadsheet
     conversionTable = readmatrix('saceData.xlsx');
+    
+    left = 1;
+    right = size(conversionTable, 1);
     matchFound = false;
-
-    index = 1;
-    while ~matchFound
-        if aggregateTotal == conversionTable(index, 1)
-            atar = conversionTable(index, 2);
+    
+    while left <= right && ~matchFound
+        mid = floor((left + right) / 2);
+        
+        if aggregateTotal == conversionTable(mid, 1)
+            atar = conversionTable(mid, 2);
             matchFound = true;
-        else 
-            index = index + 1;
+        elseif aggregateTotal < conversionTable(mid, 1)
+            right = mid - 1;
+        else
+            left = mid + 1;
         end
     end
+    
+    if ~matchFound
+        atar = NaN; % Match not found, set atar to NaN (or any other appropriate value)
+    end
 end
+
